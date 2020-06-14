@@ -3,38 +3,51 @@ import {
     StyleSheet,
     Text,
     View,
-    FlatList
+    FlatList,
+    TouchableOpacity
 } from 'react-native';
 
 import { ORIXA } from '../data/dummy-data';
+import OrixaGridTile from '../components/OrixaGridTile';
 
-//renderizar os nomes dos orixás
-const renderGridItem = (NameData) => {
-    return <View style={styles.gridItem}>
-        <Text>{NameData.item.name}</Text>
-    </View>
-};
+
 
 const OrixasScreen = props => {
+
+    //renderizar os nomes dos orixás
+    const renderGridItem = itemData => {
+        return (
+            <OrixaGridTile
+                title={itemData.item.name}
+                color={itemData.item.color}
+                onSelect={() => {
+                    props.navigation.navigate({
+                        routeName: 'Music',
+                        params: {
+                            orixaId: itemData.item.id
+                        }
+                    });
+                }}
+            />
+        );
+    };
     return (
         <FlatList
-            keyExtractor={(item, index) => item.id}
             data={ORIXA}
-            numColumns={2}
             renderItem={renderGridItem}
-
+            numColumns={3}
         />
-
     );
+};
+
+OrixasScreen.navigationOptions = {
+    headerTitle: 'Orixás'
 };
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-    },
-    gridItem: {
-        flex: 1
     },
 });
 export default OrixasScreen;
