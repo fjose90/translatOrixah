@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 //importar screens melhora o procesamento nativo
 import { enableScreens } from 'react-native-screens';
 
