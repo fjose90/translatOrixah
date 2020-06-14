@@ -1,12 +1,10 @@
 import React from 'react';
 import {
     StyleSheet,
-    Text,
-    View,
     FlatList,
-    TouchableOpacity
 } from 'react-native';
-
+import Colors from '../constants/Colors';
+import { Platform } from 'react-native';
 import { ORIXA } from '../data/dummy-data';
 import OrixaGridTile from '../components/OrixaGridTile';
 
@@ -22,7 +20,7 @@ const OrixasScreen = props => {
                 color={itemData.item.color}
                 onSelect={() => {
                     props.navigation.navigate({
-                        routeName: 'Music',
+                        routeName: 'OrixaMusics',
                         params: {
                             orixaId: itemData.item.id
                         }
@@ -41,7 +39,11 @@ const OrixasScreen = props => {
 };
 
 OrixasScreen.navigationOptions = {
-    headerTitle: 'Orixás'
+    headerTitle: 'Orixás',
+    headerStyle: {
+        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+    },
+    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
 };
 const styles = StyleSheet.create({
     screen: {
