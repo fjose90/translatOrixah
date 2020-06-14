@@ -10,5 +10,5 @@ export const ORIXA = [
     new Orixa('o7', 'Breakfast', '#9eecff'),
     new Orixa('o8', 'Asian', '#b9ffb0'),
     new Orixa('o9', 'French', '#ffc7ff'),
-    new Orixa('o10', 'Summer', '#47fced')
+    new Orixa('o10', 'Hamburgers', '#47fced'),
 ];
