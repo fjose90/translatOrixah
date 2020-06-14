@@ -9,8 +9,8 @@ import { AppLoading } from 'expo';
 
 enableScreens();
 
-//importando a pilha de navigation
-//import MealsNavigator from './navigation/MealsNavigator';
+//importando a pilha de navigator
+import OrixasNavigator from './navigation/OrixasNavigator';
 
 //adicionar função para buscar as fontes personalizadas
 const fetchFonts = () => {
@@ -28,7 +28,7 @@ export default function App() {
       onFinish={() => setFontLoaded(true)}
     />;
   }
-  // return <MealsNavigator />;
+  return <OrixasNavigator />;
 }
 
 const styles = StyleSheet.create({
