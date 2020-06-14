@@ -1,6 +1,6 @@
 import Orixa from '../models/Orixa';
 
-export const ORIXA = [
+export const ORIXAS = [
     new Orixa('o1', 'Italian', '#f5428d'),
     new Orixa('o2', 'Quick & Easy', '#f54242'),
     new Orixa('o3', 'Hamburgers', '#f5a442'),

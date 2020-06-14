@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import Colors from '../constants/Colors';
 import { Platform } from 'react-native';
-import { ORIXA } from '../data/dummy-data';
+import { ORIXAS } from '../data/dummy-data';
 import OrixaGridTile from '../components/OrixaGridTile';
 
 
@@ -31,7 +31,7 @@ const OrixasScreen = props => {
     };
     return (
         <FlatList
-            data={ORIXA}
+            data={ORIXAS}
             renderItem={renderGridItem}
             numColumns={3}
         />
