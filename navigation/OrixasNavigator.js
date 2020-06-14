@@ -1,5 +1,6 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+import { Platform } from 'react-native';
 
 import OrixasScreen from '../screens/OrixasScreen';
 import OrixaMusicsScreen from '../screens/OrixaMusicsScreen';
