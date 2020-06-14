@@ -10,7 +10,11 @@ const OrixasScreen = props => {
     return (
         <View style={styles.screen}>
             <Text>TELA DE OrixasScreen</Text>
-            <Button title="Ir para Orixas Musics" />
+            <Button
+                title="Ir para Orixas Musics"
+                onPress={() => {
+                    props.navigation.navigate({ routeName: 'OrixaMusics' });
+                }} />
         </View>);
 };
 const styles = StyleSheet.create({
