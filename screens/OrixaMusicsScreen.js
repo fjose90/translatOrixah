@@ -5,6 +5,7 @@ import {
     View,
     Button
 } from 'react-native';
+import { ORIXAS } from '../data/dummy-data';
 
 const OrixaMusicsScreen = props => {
     return (
@@ -22,6 +23,16 @@ const OrixaMusicsScreen = props => {
                 props.navigation.goBack();
             }} />
         </View>);
+};
+
+//para passar os parametros para segunda tela
+OrixaMusicsScreen.navigationOptions = navigationData => {
+    const orixaId = navigationData.navigation.getParam('orixaId');
+    const selectedOrixa = ORIXAS.find(cat => cat.id === orixaId);
+    return {
+        headerTitle: selectedOrixa.name
+
+    };
 };
 const styles = StyleSheet.create({
     screen: {
