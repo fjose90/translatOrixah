@@ -3,9 +3,10 @@ import {
     StyleSheet,
     Text,
     View,
-    Button
+    Button,
 } from 'react-native';
 import { ORIXAS } from '../data/dummy-data';
+
 
 const OrixaMusicsScreen = props => {
     return (
@@ -30,8 +31,7 @@ OrixaMusicsScreen.navigationOptions = navigationData => {
     const orixaId = navigationData.navigation.getParam('orixaId');
     const selectedOrixa = ORIXAS.find(cat => cat.id === orixaId);
     return {
-        headerTitle: selectedOrixa.name
-
+        headerTitle: selectedOrixa.name,
     };
 };
 const styles = StyleSheet.create({
