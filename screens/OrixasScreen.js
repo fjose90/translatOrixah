@@ -40,10 +40,7 @@ const OrixasScreen = props => {
 
 OrixasScreen.navigationOptions = {
     headerTitle: 'Orixás',
-    headerStyle: {
-        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-    },
-    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+
 };
 const styles = StyleSheet.create({
     screen: {
