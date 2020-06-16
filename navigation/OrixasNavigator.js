@@ -30,7 +30,7 @@ const OrixasNavigator = createStackNavigator({
 },
     {
         // initialRouteName: 'Categories',//configura tela inicial 
-        // mode: 'modal',//para transição personalizada entre telas
+        //mode: 'modal',//para transição personalizada entre telas
         defaultNavigationOptions: {
             headerStyle: {
                 backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : Colors.primaryColor

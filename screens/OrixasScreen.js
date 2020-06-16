@@ -8,14 +8,35 @@ import { Platform } from 'react-native';
 import { ORIXAS } from '../data/dummy-data';
 import OrixaGridTile from '../components/OrixaGridTile';
 
+const formatData = (data, numColumns) => {
+    const numberOfFullRows = Math.floor(data.length / numColumns);
 
+    let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
+    while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
+        data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
+        numberOfElementsLastRow++;
+    }
 
+    return data;
+};
+const numColumns = 3;
 const OrixasScreen = props => {
 
     //renderizar os nomes dos orixás
     const renderGridItem = itemData => {
+        if (itemData.item.empty === true) {
+            return (
+                <OrixaGridTile style={{ backgroundColor: 'transparent' }}
+
+
+                />
+            );
+
+
+        }
+
         return (
-            <OrixaGridTile
+            <OrixaGridTile style={styles.itemInvisible}
                 title={itemData.item.name}
                 color={itemData.item.color}
                 onSelect={() => {
@@ -31,9 +52,9 @@ const OrixasScreen = props => {
     };
     return (
         <FlatList
-            data={ORIXAS}
+            data={formatData(ORIXAS, numColumns)}
             renderItem={renderGridItem}
-            numColumns={3}
+            numColumns={numColumns}
         />
     );
 };
@@ -47,6 +68,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    itemInvisible: {
+        backgroundColor: 'transparent',
     },
 });
 export default OrixasScreen;

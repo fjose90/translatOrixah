@@ -8,7 +8,7 @@ import {
     TouchableNativeFeedback
 } from 'react-native';
 
-const CategoryGridTile = props => {
+const OrixaGridTile = props => {
     let TouchableCmp = TouchableOpacity;
     if (Platform.OS === 'android' && Platform.Version >= 21) {
         TouchableCmp = TouchableNativeFeedback;
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         maxWidth: 100
     },
+
     title: {
         fontFamily: 'open-sans-bold',
         fontSize: 12,
@@ -55,5 +56,5 @@ const styles = StyleSheet.create({
     }
 })
 
-export default CategoryGridTile;
+export default OrixaGridTile;
 
