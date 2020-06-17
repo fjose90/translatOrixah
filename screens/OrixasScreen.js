@@ -4,7 +4,6 @@ import {
     Text,
     View,
     FlatList,
-    Dimensions,
     TouchableOpacity,
 } from "react-native";
 import Colors from "../constants/Colors";
@@ -19,21 +18,24 @@ const OrixasScreen = (props) => {
         }
 
         return (
-            <TouchableOpacity
-                style={styles.gridItem}
-                onPress={() => {
-                    props.navigation.navigate({
-                        routeName: "OrixaMusics",
-                        params: {
-                            OrixaId: itemData.item.id,
-                        },
-                    });
-                }}
-            >
-                <View>
-                    <Text>{itemData.item.name}</Text>
-                </View>
-            </TouchableOpacity>
+            <View style={styles.gridItem}>
+                <TouchableOpacity
+                    onPress={() => {
+                        props.navigation.navigate({
+                            routeName: "OrixaMusics",
+                            params: {
+                                OrixaId: itemData.item.id,
+                            },
+                        });
+                    }}
+                >
+                    <View style={styles.container}>
+                        <Text style={styles.text} numberOfLines={2}>
+                            {itemData.item.name}
+                        </Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
         );
     };
     //cria itens ocultos para que o último elemento não ocupe toda a largura
@@ -53,6 +55,7 @@ const OrixasScreen = (props) => {
 
     return (
         <FlatList
+            //style={styles.container}
             keyExtractor={(item, index) => item.id}
             data={createRows(ORIXAS, numColumns)}
             renderItem={renderItem}
@@ -66,19 +69,34 @@ OrixasScreen.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-    },
     gridItem: {
         flex: 1,
-        margin: 10,
-        height: Dimensions.get("window").width / numColumns,
-        backgroundColor: Colors.secundaryColor,
+        margin: 15,
+        height: 150,
+        borderRadius: 10,
+        overflow: "hidden",
+        backgroundColor: "blue",
+    },
+    container: {
+        flex: 1,
+
+        borderRadius: 10,
+        shadowColor: "black",
+        shadowOpacity: 0.26,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 10,
+        elevation: 5,
+        padding: 15,
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
     },
     itemEmpty: {
         backgroundColor: "transparent",
+    },
+    text: {
+        fontFamily: "open-sans-bold",
+        fontSize: 12,
+        textAlign: "right",
     },
 });
 
