@@ -1,76 +1,60 @@
-import React from 'react';
+import React from "react";
 import {
     StyleSheet,
+    Text,
+    View,
     FlatList,
-} from 'react-native';
-import Colors from '../constants/Colors';
-import { Platform } from 'react-native';
-import { ORIXAS } from '../data/dummy-data';
-import OrixaGridTile from '../components/OrixaGridTile';
+    TouchableOpacity,
+} from "react-native";
+import ORIXAS from "../data/dummy-data";
 
-const formatData = (data, numColumns) => {
-    const numberOfFullRows = Math.floor(data.length / numColumns);
-
-    let numberOfElementsLastRow = data.length - (numberOfFullRows * numColumns);
-    while (numberOfElementsLastRow !== numColumns && numberOfElementsLastRow !== 0) {
-        data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
-        numberOfElementsLastRow++;
-    }
-
-    return data;
-};
 const numColumns = 3;
-const OrixasScreen = props => {
 
-    //renderizar os nomes dos orixás
-    const renderGridItem = itemData => {
-        if (itemData.item.empty === true) {
-            return (
-                <OrixaGridTile style={{ backgroundColor: 'transparent' }}
-
-
-                />
-            );
-
-
-        }
-
+const OrixasScreen = (props) => {
+    const renderGrid = (itemData) => {
         return (
-            <OrixaGridTile style={styles.itemInvisible}
-                title={itemData.item.name}
-                color={itemData.item.color}
-                onSelect={() => {
+            <TouchableOpacity
+                styles={styles.gridItem}
+                onPress={() => {
                     props.navigation.navigate({
-                        routeName: 'OrixaMusics',
+                        routeName: "OrixaMusics",
                         params: {
-                            orixaId: itemData.item.id
-                        }
+                            OrixaId: itemData.item.id,
+                        },
                     });
                 }}
-            />
+            >
+                <View>
+                    <Text>{itemData.item.name}</Text>
+                </View>
+            </TouchableOpacity>
         );
     };
     return (
         <FlatList
-            data={formatData(ORIXAS, numColumns)}
-            renderItem={renderGridItem}
+            data={ORIXAS}
+            keyExtractor={(item, index) => item.id}
+            renderItem={renderGrid}
             numColumns={numColumns}
         />
     );
 };
 
 OrixasScreen.navigationOptions = {
-    headerTitle: 'Orixás',
-
+    headerTitle: "Orixás",
 };
+
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        justifyContent: "center",
+        alignItems: "center",
     },
-    itemInvisible: {
-        backgroundColor: 'transparent',
+    gridItem: {
+        flex: 1,
+        margin: 15,
+        height: 150,
     },
 });
+
 export default OrixasScreen;
