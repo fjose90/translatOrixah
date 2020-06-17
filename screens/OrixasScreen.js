@@ -4,17 +4,23 @@ import {
     Text,
     View,
     FlatList,
+    Dimensions,
     TouchableOpacity,
 } from "react-native";
-import ORIXAS from "../data/dummy-data";
+import Colors from "../constants/Colors";
+import { ORIXAS } from "../data/dummy-data";
 
 const numColumns = 3;
 
 const OrixasScreen = (props) => {
-    const renderGrid = (itemData) => {
+    const renderItem = (itemData) => {
+        if (itemData.item.empty) {
+            return <View style={[styles.gridItem, styles.itemEmpty]} />;
+        }
+
         return (
             <TouchableOpacity
-                styles={styles.gridItem}
+                style={styles.gridItem}
                 onPress={() => {
                     props.navigation.navigate({
                         routeName: "OrixaMusics",
@@ -30,11 +36,26 @@ const OrixasScreen = (props) => {
             </TouchableOpacity>
         );
     };
+    //cria itens ocultos para que o último elemento não ocupe toda a largura
+    const createRows = (data, numColumns) => {
+        const rows = Math.floor(data.length / numColumns);
+        let lastRowElements = data.length - rows * numColumns;
+        while (lastRowElements !== numColumns && lastRowElements !== 0) {
+            data.push({
+                id: `empty-${lastRowElements}`,
+                name: `empty-${lastRowElements}`,
+                empty: true,
+            });
+            lastRowElements++;
+        }
+        return data;
+    };
+
     return (
         <FlatList
-            data={ORIXAS}
             keyExtractor={(item, index) => item.id}
-            renderItem={renderGrid}
+            data={createRows(ORIXAS, numColumns)}
+            renderItem={renderItem}
             numColumns={numColumns}
         />
     );
@@ -52,8 +73,12 @@ const styles = StyleSheet.create({
     },
     gridItem: {
         flex: 1,
-        margin: 15,
-        height: 150,
+        margin: 10,
+        height: Dimensions.get("window").width / numColumns,
+        backgroundColor: Colors.secundaryColor,
+    },
+    itemEmpty: {
+        backgroundColor: "transparent",
     },
 });
 
