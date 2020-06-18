@@ -29,7 +29,7 @@ const OrixasScreen = (props) => {
                         });
                     }}
                 >
-                    <View style={styles.container}>
+                    <View style={{ backgroundColor: props.color }}>
                         <Text style={styles.text} numberOfLines={2}>
                             {itemData.item.name}
                         </Text>
@@ -67,7 +67,6 @@ const OrixasScreen = (props) => {
 OrixasScreen.navigationOptions = {
     headerTitle: "Orixás",
 };
-
 const styles = StyleSheet.create({
     gridItem: {
         flex: 1,
@@ -75,7 +74,6 @@ const styles = StyleSheet.create({
         height: 150,
         borderRadius: 10,
         overflow: "hidden",
-        backgroundColor: "blue",
     },
     container: {
         flex: 1,
