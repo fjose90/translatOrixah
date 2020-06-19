@@ -1,32 +1,31 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-import { ORIXAS } from "../data/dummy-data";
+import { StyleSheet, Text, View, FlatList } from "react-native";
+import { ORIXAS, MUSICS } from "../data/dummy-data";
 import Colors from "../constants/Colors";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
 
 const OrixaMusicsScreen = (props) => {
     const orixaId = props.navigation.getParam("orixaId");
-    const selectedOrixa = ORIXAS.find((cat) => cat.id === orixaId);
+
+    const renderMusicItem = (itemData) => {
+        return (
+            <View>
+                <Text>{itemData.item.title}</Text>
+            </View>
+        );
+    };
+
+    const displayedMusic = MUSICS.filter(
+        (music) => music.orixaIds.indexOf(orixaId) >= 0
+    );
+
     return (
-        <FlatList>
-            <Text> TELA DE OrixaMusicsScreen</Text>
-            <Text>{selectedOrixa.name}</Text>
-            <Button
-                title="Ir para Musics"
-                onPress={() => {
-                    props.navigation.navigate({
-                        routeName: "Music",
-                    });
-                }}
-            />
-            {/* //botao de voltar */}
-            <Button
-                title="Voltar"
-                onPress={() => {
-                    props.navigation.goBack();
-                }}
-            />
-        </FlatList>
+        <View style={styles.screen}>
+            <FlatList
+                data={displayedMusic}
+                keyExtractor={(item, index) => item.id}
+                renderItem={renderMusicItem}
+            ></FlatList>
+        </View>
     );
 };
 
