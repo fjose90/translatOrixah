@@ -1,9 +1,21 @@
 import React from "react";
-import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import {
+    TouchableOpacity,
+    View,
+    Text,
+    StyleSheet,
+    TouchableNativeFeedback,
+    Platform,
+} from "react-native";
 
 const OrixaGridTile = (props) => {
+    let TouchableCmp = TouchableOpacity;
+
+    if (Platform.OS === "android" && Platform.Version >= 21) {
+        TouchableCmp = TouchableNativeFeedback;
+    }
     return (
-        <TouchableOpacity style={{ flex: 1 }} onPress={props.onSelect}>
+        <TouchableCmp style={{ flex: 1 }} onPress={props.onSelect}>
             <View
                 style={{
                     ...styles.container,
@@ -14,7 +26,7 @@ const OrixaGridTile = (props) => {
                     {props.title}
                 </Text>
             </View>
-        </TouchableOpacity>
+        </TouchableCmp>
     );
 };
 const styles = StyleSheet.create({
