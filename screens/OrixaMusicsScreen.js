@@ -2,12 +2,13 @@ import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import { ORIXAS } from "../data/dummy-data";
 import Colors from "../constants/Colors";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 
 const OrixaMusicsScreen = (props) => {
     const orixaId = props.navigation.getParam("orixaId");
     const selectedOrixa = ORIXAS.find((cat) => cat.id === orixaId);
     return (
-        <View style={styles.screen}>
+        <FlatList>
             <Text> TELA DE OrixaMusicsScreen</Text>
             <Text>{selectedOrixa.name}</Text>
             <Button
@@ -25,7 +26,7 @@ const OrixaMusicsScreen = (props) => {
                     props.navigation.goBack();
                 }}
             />
-        </View>
+        </FlatList>
     );
 };
 
@@ -46,8 +47,8 @@ OrixaMusicsScreen.navigationOptions = (navigationData) => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        //justifyContent: "center",
+        //alignItems: "center",
     },
 });
 export default OrixaMusicsScreen;
