@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, View, FlatList, Dimensions } from "react-native";
-import Colors from "../constants/Colors";
 import { ORIXAS } from "../data/dummy-data";
 import OrixaGridTile from "../components/OrixaGridTile";
 
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
     gridItem: {
         flex: 1,
         margin: 10,
-        height: 150, //Dimensions.get('window').width / numColumns,
+        height: Dimensions.get("window").width / numColumns, //150
         borderRadius: 10,
         overflow: "hidden",
     },
