@@ -1,13 +1,8 @@
 import React from "react";
-import {
-    StyleSheet,
-    Text,
-    View,
-    FlatList,
-    TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, FlatList, Dimensions } from "react-native";
 import Colors from "../constants/Colors";
 import { ORIXAS } from "../data/dummy-data";
+import OrixaGridTile from "../components/OrixaGridTile";
 
 const numColumns = 3;
 
@@ -19,22 +14,18 @@ const OrixasScreen = (props) => {
 
         return (
             <View style={styles.gridItem}>
-                <TouchableOpacity
-                    onPress={() => {
+                <OrixaGridTile
+                    color={itemData.item.color}
+                    title={itemData.item.name}
+                    onSelect={() => {
                         props.navigation.navigate({
                             routeName: "OrixaMusics",
                             params: {
-                                OrixaId: itemData.item.id,
+                                orixaId: itemData.item.id,
                             },
                         });
                     }}
-                >
-                    <View style={{ backgroundColor: props.color }}>
-                        <Text style={styles.text} numberOfLines={2}>
-                            {itemData.item.name}
-                        </Text>
-                    </View>
-                </TouchableOpacity>
+                />
             </View>
         );
     };
@@ -68,33 +59,20 @@ OrixasScreen.navigationOptions = {
     headerTitle: "Orixás",
 };
 const styles = StyleSheet.create({
+    screen: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
     gridItem: {
         flex: 1,
-        margin: 15,
-        height: 150,
+        margin: 10,
+        height: 150, //Dimensions.get('window').width / numColumns,
         borderRadius: 10,
         overflow: "hidden",
     },
-    container: {
-        flex: 1,
-
-        borderRadius: 10,
-        shadowColor: "black",
-        shadowOpacity: 0.26,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 10,
-        elevation: 5,
-        padding: 15,
-        justifyContent: "flex-end",
-        alignItems: "flex-end",
-    },
     itemEmpty: {
         backgroundColor: "transparent",
-    },
-    text: {
-        fontFamily: "open-sans-bold",
-        fontSize: 12,
-        textAlign: "right",
     },
 });
 
