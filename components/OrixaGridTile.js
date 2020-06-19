@@ -1,60 +1,41 @@
-import React from 'react';
-import {
-    TouchableOpacity,
-    View,
-    Text,
-    StyleSheet,
-    Platform,
-    TouchableNativeFeedback
-} from 'react-native';
+import React from "react";
+import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 
-const OrixaGridTile = props => {
-    let TouchableCmp = TouchableOpacity;
-    if (Platform.OS === 'android' && Platform.Version >= 21) {
-        TouchableCmp = TouchableNativeFeedback;
-    }
+const OrixaGridTile = (props) => {
     return (
-        <View style={styles.gridItem}>
-            <TouchableCmp
-                style={{ flex: 1 }}
-                onPress={props.onSelect}
+        <TouchableOpacity style={{ flex: 1 }} onPress={props.onSelect}>
+            <View
+                style={{
+                    ...styles.container,
+                    ...{ backgroundColor: props.color },
+                }}
             >
-                <View style={{ ...styles.container, ...{ backgroundColor: props.color } }}>
-                    <Text style={styles.title} numberOflines={2}>
-                        {props.title}</Text>
-                </View>
-            </TouchableCmp>
-        </View>)
+                <Text style={styles.Text} numberOfLines={2}>
+                    {props.title}
+                </Text>
+            </View>
+        </TouchableOpacity>
+    );
 };
 const styles = StyleSheet.create({
-    gridItem: {
-        flex: 1,
-        margin: 10,
-        height: 160,
-        borderRadius: 10,
-        overflow: 'hidden',
-
-    },
     container: {
         flex: 1,
         borderRadius: 10,
-        shadowColor: 'black',
+        shadowColor: "black",
         shadowOpacity: 0.26,
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 10,
         elevation: 3,
-        padding: 12,
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
-        maxWidth: 100
+        padding: 10,
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
     },
 
     title: {
-        fontFamily: 'open-sans-bold',
-        fontSize: 12,
-        textAlign: 'right'
-    }
-})
+        fontFamily: "open-sans-bold",
+        fontSize: 15,
+        textAlign: "right",
+    },
+});
 
 export default OrixaGridTile;
-
