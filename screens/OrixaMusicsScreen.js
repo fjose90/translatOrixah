@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import { ORIXAS, MUSICS } from "../data/dummy-data";
+import MusicItem from "../components/MusicItem";
 import Colors from "../constants/Colors";
 
 const OrixaMusicsScreen = (props) => {
@@ -8,9 +9,7 @@ const OrixaMusicsScreen = (props) => {
 
     const renderMusicItem = (itemData) => {
         return (
-            <View>
-                <Text>{itemData.item.title}</Text>
-            </View>
+            <MusicItem title={itemData.item.title} onSelectMusic={() => {}} />
         );
     };
 
@@ -24,6 +23,7 @@ const OrixaMusicsScreen = (props) => {
                 data={displayedMusic}
                 keyExtractor={(item, index) => item.id}
                 renderItem={renderMusicItem}
+                style={{ width: "100%" }}
             ></FlatList>
         </View>
     );
