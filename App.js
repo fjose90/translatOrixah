@@ -15,6 +15,7 @@ import OrixasNavigator from "./navigation/OrixasNavigator";
 //adicionar função para buscar as fontes personalizadas
 const fetchFonts = () => {
     return Font.loadAsync({
+        "berks-regular": require("./assets/fonts/BerkshireSwash-Regular.ttf"),
         "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
         "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
     });
