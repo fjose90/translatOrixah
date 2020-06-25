@@ -22,7 +22,7 @@ const OrixasNavigator = createStackNavigator(
                             ? Colors.primaryColor
                             : Colors.primaryColor,
                 },
-                headerTintColor: Platform.OS === "android" ? "white" : "white",
+                headerTintColor: Platform.OS === "android" ? "black" : "black",
             },
         },
 
@@ -40,7 +40,11 @@ const OrixasNavigator = createStackNavigator(
                         ? Colors.primaryColor
                         : Colors.primaryColor,
             },
-            headerTintColor: Platform.OS === "android" ? "white" : "white",
+            headerTintColor: Platform.OS === "android" ? "black" : "black",
+            headerTitleStyle: {
+                fontFamily: "bsw-regular",
+                fontSize: 30,
+            },
         },
     }
 );

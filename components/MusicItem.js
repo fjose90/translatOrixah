@@ -5,7 +5,7 @@ const MusicItem = (props) => {
     return (
         <TouchableOpacity onPress={props.onselectMusic}>
             <View style={styles.screen}>
-                <Text> {props.title}</Text>
+                <Text style={styles.text}> {props.title}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -16,5 +16,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    text: { fontFamily: "bsw-regular" },
 });
 export default MusicItem;
