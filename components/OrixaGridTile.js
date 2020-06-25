@@ -22,9 +22,7 @@ const OrixaGridTile = (props) => {
                     ...{ backgroundColor: props.color },
                 }}
             >
-                <Text style={styles.Text} numberOfLines={2}>
-                    {props.title}
-                </Text>
+                <Text style={styles.title}>{props.title}</Text>
             </View>
         </TouchableCmp>
     );
@@ -39,14 +37,13 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         elevation: 3,
         padding: 10,
-        justifyContent: "flex-end",
-        alignItems: "flex-end",
+        justifyContent: "flex-start",
+        alignItems: "center",
     },
 
     title: {
-        fontFamily: "open-sans-bold",
-        fontSize: 15,
-        textAlign: "right",
+        fontFamily: "bsw-regular",
+        fontSize: 14,
     },
 });
 

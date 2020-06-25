@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
     },
     gridItem: {
         flex: 1,
-        margin: 10,
-        height: Dimensions.get("window").width / numColumns, //150
+        margin: 8,
+        height: 150, //Dimensions.get("window").width / numColumns,
         borderRadius: 10,
         overflow: "hidden",
     },
