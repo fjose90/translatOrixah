@@ -7,7 +7,7 @@ export const ORIXAS = [
     new Orixa("o3", "Oxóssi", "#00c5d2"),
     new Orixa("o4", "Ossaim", "#62ee57"),
     new Orixa("o5", "Iroco", "#008337"),
-    new Orixa("o6", "Obaluaê", "#000000"),
+    new Orixa("o6", "Obaluaê", "#0001"),
     new Orixa("o7", "Oxumarê", "#fdef35"),
     new Orixa("o8", "Xangô", "#ff0000"),
     new Orixa("o9", "Ayrá", "#2500b2"),
