@@ -46,8 +46,9 @@ OrixaMusicsScreen.navigationOptions = (navigationData) => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        //justifyContent: "center",
-        //alignItems: "center",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 15,
     },
 });
 export default OrixaMusicsScreen;
