@@ -6,6 +6,7 @@ import {
     StyleSheet,
     TouchableNativeFeedback,
     Platform,
+    ImageBackground,
 } from "react-native";
 
 const OrixaGridTile = (props) => {
@@ -19,10 +20,13 @@ const OrixaGridTile = (props) => {
             <View
                 style={{
                     ...styles.container,
-                    ...{ backgroundColor: props.color },
                 }}
             >
-                <Text style={styles.title}>{props.title}</Text>
+                <ImageBackground
+                    style={styles.image}
+                    source={require("../assets/img/backOrixa.png")}
+                    resizeMode="cover"
+                />
             </View>
         </TouchableCmp>
     );
@@ -36,14 +40,19 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 10,
         elevation: 3,
-        padding: 10,
+
         justifyContent: "flex-start",
         alignItems: "center",
+        overflow: "hidden",
     },
 
     title: {
         fontFamily: "bsw-regular",
         fontSize: 14,
+    },
+    image: {
+        width: "100%",
+        height: "100%",
     },
 });
 

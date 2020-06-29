@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 
 const MusicItem = (props) => {
     return (
@@ -7,6 +7,10 @@ const MusicItem = (props) => {
             <TouchableOpacity onPress={props.onSelectMusic}>
                 <View style={styles.musicItem}>
                     <View style={styles.musicRow}>
+                        <Image
+                            style={styles.imgAlbum}
+                            source={require("../assets/img/albumMusic.png")}
+                        ></Image>
                         <Text style={styles.text} numberOfLines={1}>
                             {props.title}
                         </Text>
@@ -30,6 +34,11 @@ const styles = StyleSheet.create({
 
     musicRow: {
         flexDirection: "row",
+    },
+    imgAlbum: {
+        backgroundColor: "red",
+        width: 46,
+        height: 50,
     },
     musicHeader: {
         height: "85%",
