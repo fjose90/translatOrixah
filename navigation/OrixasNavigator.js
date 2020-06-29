@@ -44,6 +44,7 @@ const OrixasNavigator = createStackNavigator(
             headerTitleStyle: {
                 fontFamily: "bsw-regular",
                 fontSize: 30,
+                alignSelf: "center", //alinha titulo Header no centro
             },
         },
     }
