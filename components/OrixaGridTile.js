@@ -23,10 +23,17 @@ const OrixaGridTile = (props) => {
                 }}
             >
                 <ImageBackground
-                    style={styles.image}
-                    source={require("../assets/img/backOrixa.png")}
-                    resizeMode="cover"
-                />
+                    style={{
+                        ...styles.image,
+                        ...{ backgroundColor: props.color },
+                    }}
+                    source={require("../assets/img/backOrixaMold.png")}
+                    resizeMode="contain"
+                >
+                    <Text style={styles.title} numberOfLines={2}>
+                        {props.title}
+                    </Text>
+                </ImageBackground>
             </View>
         </TouchableCmp>
     );
@@ -38,21 +45,23 @@ const styles = StyleSheet.create({
         shadowColor: "black",
         shadowOpacity: 0.26,
         shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 10,
+        shadowRadius: 5,
         elevation: 3,
-
-        justifyContent: "flex-start",
-        alignItems: "center",
-        overflow: "hidden",
+        padding: 5,
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
     },
 
     title: {
         fontFamily: "bsw-regular",
-        fontSize: 14,
+        fontSize: 25,
+        textAlign: "center",
     },
     image: {
         width: "100%",
         height: "100%",
+
+        //overflow: "hidden",
     },
 });
 
