@@ -9,7 +9,17 @@ const OrixaMusicsScreen = (props) => {
 
     const renderMusicItem = (itemData) => {
         return (
-            <MusicItem title={itemData.item.title} onSelectMusic={() => {}} />
+            <MusicItem
+                title={itemData.item.name}
+                onSelectMusic={() => {
+                    props.navigation.navigate({
+                        routeName: "Music",
+                        params: {
+                            musicId: itemData.item.id,
+                        },
+                    });
+                }}
+            />
         );
     };
 

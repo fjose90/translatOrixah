@@ -49,6 +49,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         height: "15%",
     },
-    text: { fontFamily: "bsw-regular" },
+    text: {
+        fontFamily: "bsw-regular",
+        fontSize: 30,
+        textAlign: "right",
+    },
 });
 export default MusicItem;

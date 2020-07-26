@@ -20,15 +20,78 @@ export const ORIXAS = [
     new Orixa("o16", "Nanã", "#9e00ff"),
     new Orixa("o17", "Oxalá", "#ffffff"),
 ];
+
 export const MUSICS = [
-    new Music("m1", "o1", "music1", "/imgCover", "/fileMusic"),
-    new Music("m2", "o1", "music2", "/imgCover", "/fileMusic"),
-    new Music("m3", "o1", "music3", "/imgCover", "/fileMusic"),
-    new Music("m4", "o1", "music4", "/imgCover", "/fileMusic"),
-    new Music("m5", "o1", "music5", "/imgCover", "/fileMusic"),
-    new Music("m6", "o1", "music6", "/imgCover", "/fileMusic"),
-    new Music("m7", "o1", "music7", "/imgCover", "/fileMusic"),
-    new Music("m8", "o1", "music8", "/imgCover", "/fileMusic"),
-    new Music("m9", "o1", "music9", "/imgCover", "/fileMusic"),
-    new Music("m10", "o1", "music10", "/imgCover", "/fileMusic"),
+    new Music(
+        "m1",
+        "o1",
+        "Cantiga 01",
+        ["EXÚ TÁ-LÁ NILORÉ", "EXÚ TÁ-LÁ NILORÉ-Ô"],
+        "/fileMusic"
+    ),
+    new Music(
+        "m2",
+        "o1",
+        "Cantiga 02",
+        ["EXÚ-Ô", "EXÚ OLONÃ", "MOFORUM BALÉ", "EXÚ-Ô"],
+        "/fileMusic"
+    ),
+    new Music(
+        "m3",
+        "o1",
+        "Cantiga 03",
+        ["EXÚ-Ô", "EXÚ OLONÃ", "MOFORUM BALÉ", "EXÚ-Ô"],
+        "/fileMusic"
+    ),
+    new Music(
+        "m4",
+        "o1",
+        "Cantiga 04",
+        [
+            "Ê IBARABÔ Ê MOJUBÁ RÁ",
+            "Ê BAKOXÉ ",
+            "EXÚ BARABÔ AGÔ MOJUBÁ RÁ-Ê",
+            "MABEKÓ IKÓ ",
+            "IBARABÔ ÊMOJUBA 'RÁ ",
+            "LEBARA EXÚ LONÃ",
+            "Ê IBARABÔ AGÔ MOJUBÁ RÁ",
+            "Ê BAKOXÉ ",
+            "EXU BARABÔ AGÔ MOJUBA 'RÁ ",
+            "Ê MABEXIRÊ",
+            "EXÚ BARABÔ AGÔ MOJUBA 'RÁ ",
+            "LEBARA EXU LONÃ",
+        ],
+        "/fileMusic"
+    ),
+    new Music(
+        "m5",
+        "o1",
+        "Cantiga 05",
+        ["ORÍ SAPATÁ AGÔ NILÊ", "AGÔ NILÊ MOFORUM BALÉ", "ORÍ SAPATÁ AGÔ NILÊ"],
+        "/fileMusic"
+    ),
+    new Music(
+        "m6",
+        "o1",
+        "Cantiga 06",
+        [
+            "EXÚ LONÃ, EXÚ LONÃ",
+            "MOTIRÊ LODÊ ELEBARA",
+            "ELEBARA XIRÊ",
+            "EXÚ TALÁ KEWÁ Ô",
+        ],
+        "/fileMusic"
+    ),
+    new Music(
+        "m7",
+        "o1",
+        "Cantiga 07",
+        [
+            "Ê ODARA LÔ XORÔ",
+            "ODARA LÔ XORÔ LONÃ",
+            "ODARA LÔ XORÔ",
+            "ODARA LÔ XORÔ LONÃ",
+        ],
+        "/fileMusic"
+    ),
 ];

@@ -28,7 +28,7 @@ const OrixaGridTile = (props) => {
                         ...{ backgroundColor: props.color },
                     }}
                     source={require("../assets/img/backOrixaMold.png")}
-                    resizeMode="contain"
+                    resizeMode="cover" //para cobrir o elevation
                 >
                     <Text style={styles.title} numberOfLines={2}>
                         {props.title}
@@ -47,11 +47,10 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 5,
         elevation: 3,
-        padding: 5,
+        //padding: 5,//ver isso depois
         justifyContent: "flex-end",
         alignItems: "flex-end",
     },
-
     title: {
         fontFamily: "bsw-regular",
         fontSize: 25,
@@ -60,7 +59,6 @@ const styles = StyleSheet.create({
     image: {
         width: "100%",
         height: "100%",
-
         //overflow: "hidden",
     },
 });
