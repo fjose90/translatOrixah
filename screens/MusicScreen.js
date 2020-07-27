@@ -1,15 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import { MUSICS } from "../data/dummy-data";
+import Music from "../models/Music";
+import { FlatList } from "react-native-gesture-handler";
 
 const MusicScreen = (props) => {
-    const MusicId = props.navigation.getParam("file");
+    //pega os parametros da segunda tela
+    const musicId = props.navigation.getParam("musicId");
+    const musicCover = props.navigation.getParam("musicCover");
+    const musicFile = props.navigation.getParam("musicFile");
 
     return (
         <View style={styles.screen}>
-            <Text> TELA DE MusicScreen</Text>
-            <Text> {MusicId}</Text>
-
+            <View>
+                <Text>{musicCover}</Text>
+                <Text>{musicFile}</Text>
+            </View>
             <Button
                 title="Ir para Tela Inicial"
                 onPress={() => {
@@ -21,7 +27,7 @@ const MusicScreen = (props) => {
         </View>
     );
 };
-
+//responsavel pela navegação
 MusicScreen.navigationOptions = (navigationData) => {
     const musicId = navigationData.navigation.getParam("musicId");
     const selectedMusic = MUSICS.find((mus) => mus.id === musicId);
