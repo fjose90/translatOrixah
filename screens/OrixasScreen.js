@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, FlatList, Dimensions } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
 import { ORIXAS } from "../data/dummy-data";
 import OrixaGridTile from "../components/OrixaGridTile";
 
