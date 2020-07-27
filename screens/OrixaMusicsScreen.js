@@ -16,6 +16,8 @@ const OrixaMusicsScreen = (props) => {
                         routeName: "Music",
                         params: {
                             musicId: itemData.item.id,
+                            musicCover: itemData.item.cover,
+                            musicFile: itemData.item.file,
                         },
                     });
                 }}
